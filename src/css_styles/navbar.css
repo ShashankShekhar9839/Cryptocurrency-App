@@ -1,0 +1,60 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: red;
+    width: 100vw;
+    background-color: white;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.logo{
+    padding-left: 1rem;
+}
+
+.logo:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s ease-in-out;
+    border-radius: 4px;
+}
+
+.logo h1{
+    font-size: 20px;
+    padding: left 0.5rem;
+    padding-right: 0.5rem;
+    text-decoration: none!important;
+    color:black;
+}
+
+.logo h1:hover{
+    color: white;
+}
+
+Link{
+    text-decoration: none;
+}
+
+.login-div{
+    margin-right:1rem;
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    
+}
+
+.login-div button{
+    border: none;
+    font-size: 18px;
+    font-weight:bold;
+    background-color: black;
+    color: white;
+    padding: 0.3rem;
+    border-radius: 4px;
+}
+
+.login-div button:hover{
+    cursor: pointer;
+}
+

@@ -1,0 +1,29 @@
+.trending-card{
+    height: 5vw;
+    width: 20vw;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);
+}
+.trending-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.trending-name{
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    justify-content: center;
+    align-items:flex-end;
+}
+
+.trending-img img{
+    height: 24px;
+    width: 24px;
+    align-self: center;
+    margin: auto;
+}

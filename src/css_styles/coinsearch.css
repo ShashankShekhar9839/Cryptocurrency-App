@@ -1,0 +1,83 @@
+.coin-search{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+
+}
+.search-div{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    margin: auto;
+    margin-top: 5px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.search-div h2{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.search-div input{
+    padding: 0.3rem;
+    width: 20vw;
+    font-size: 16px;
+    
+}
+
+.table-div{
+    width: 95%;
+   
+    text-align: center;
+    align-self: center;
+    border-radius: 5px;
+    margin-top: -2rem;
+   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  
+    
+}
+
+table{
+    table-layout:fixed;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  
+}
+
+table img{
+    height: 24px;
+    width: 24px;
+}
+
+th{
+    border: 0.5px solid black;
+}
+
+tr{
+    height: 50px;
+    margin-top:4px;
+    border: 0.5px solid black;
+}
+
+table tr:hover{
+    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 999;
+}
+td{
+    padding: 0.4rem;
+}
+
+.text-color1{
+    color: green;
+}
+.text-color2{
+    color: red;
+}
+
+
