@@ -33,7 +33,6 @@ const CoinSearch = ({ coins }) => {
 <table>
         <thead>
           <tr>
-            <th></th>
             <th>#</th>
             <th>Coin Image</th>
             <th>Name</th>
@@ -66,7 +65,6 @@ const CoinSearch = ({ coins }) => {
                 // returning coin item 
               // <CoinItem key={coin.id} coin={coin}/>
               <tr>
-              <td><i class="fa-regular fa-star"></i></td>
               <td>{coin.market_cap_rank}</td>
               <td>
               <Link to={`/coin/${coin.id}`}>
@@ -81,7 +79,7 @@ const CoinSearch = ({ coins }) => {
          {/* changing color according to market change */}
                 {
                 coin.price_change_percentage_24h>0?
-                <td className="text-color1">{coin.price_change_percentage_24h.toFixed(2)}</td> : 
+                <td className="text-color1">{coin.price_change_percentage_24h.toFixed(2)}%</td> : 
                 <td className="text-color2">{coin.price_change_percentage_24h.toFixed(2)}%</td>
                 
                 }

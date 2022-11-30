@@ -1,0 +1,13 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+
+}
+
+.home-div2{
+    text-align: left;
+    width: 80%;
+    margin: auto;
+}

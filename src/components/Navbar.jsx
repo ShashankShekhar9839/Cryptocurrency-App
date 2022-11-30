@@ -12,15 +12,6 @@ const Navbar = () => {
         </Link>
         </div>
 
-        <div className='login-div'>
-            <Link to='/'>
-                <button>SignIn</button>
-            </Link>
-
-            <Link to='/'>
-                <button>SignUp</button>
-            </Link>
-        </div>
 
 
     </div>

@@ -36,25 +36,7 @@ Link{
     text-decoration: none;
 }
 
-.login-div{
-    margin-right:1rem;
-    display: flex;
-    gap: 1rem;
-    font-size: 1rem;
-    
-}
 
-.login-div button{
-    border: none;
-    font-size: 18px;
-    font-weight:bold;
-    background-color: black;
-    color: white;
-    padding: 0.3rem;
-    border-radius: 4px;
-}
 
-.login-div button:hover{
-    cursor: pointer;
-}
+
 

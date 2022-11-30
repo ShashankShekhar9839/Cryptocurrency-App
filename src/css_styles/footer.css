@@ -1,0 +1,27 @@
+.footer{
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-footer{
+    padding: 2rem 0;
+}
+
+.right-footer{
+    padding: 2rem 0;
+}
+
+.footer h4{
+    font-size: 1.3rem;
+    padding: 1rem 0;
+}
+
+.footer li{
+    list-style: none;
+    text-decoration: none;
+    line-height: 2rem;
+}

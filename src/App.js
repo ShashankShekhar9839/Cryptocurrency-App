@@ -3,11 +3,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './routes/Home';
-import SignIn from './routes/SignIn'
-import SignUp from './routes/SignUp';
-import Account from './routes/Account';
+
 import CoinPage from './routes/CoinPage';
 import { useEffect, useState } from 'react';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -31,12 +30,10 @@ useEffect(()=>{
     
       <Routes>
         <Route path='/' element={<Home coins = {coins}/>}></Route>
-        <Route path='/signin' element={<SignIn/>}></Route>
-        <Route path='/signun' element={<SignUp/>}></Route>
-        <Route path='/account' element={<Account/>}></Route>
         <Route path='/coin/:coinId' element={<CoinPage/>}></Route>
         <Route path=':coinId' element={<CoinPage/>}/>
       </Routes>
+      <Footer/>
     
    
     </div>
