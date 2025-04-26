@@ -1,106 +1,116 @@
 import React, { useState } from "react";
-import '../css_styles/coinsearch.css';
-import { Sparklines, SparklinesLine } from "react-sparklines";
-import '../css_styles/coinitem.css'
+import "../css_styles/coinsearch.css";
 import { Link } from "react-router-dom";
 
-import CoinItem from "./CoinItem";
-
-// receving coins from home page throug props
 const CoinSearch = ({ coins }) => {
+  const [searhCoin, setSearchCoin] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const coinsPerPage = 10;
 
-  // search input value setting
-  const [searhCoin,setSearchCoin] = useState('');
+  // Filter coins based on search
+  const filteredCoins = coins.filter((coin) => {
+    if (searhCoin === "") {
+      return coin;
+    } else if (coin.name.toLowerCase().includes(searhCoin.toLowerCase())) {
+      return coin;
+    }
+  });
 
-  console.log(coins);
+  // Pagination logic
+  const indexOfLastCoin = currentPage * coinsPerPage;
+  const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
+  const currentCoins = filteredCoins.slice(indexOfFirstCoin, indexOfLastCoin);
+
+  const totalPages = Math.ceil(filteredCoins.length / coinsPerPage);
+
   return (
     <div className="coin-search">
-
-      {/* search div will contain heading and a form */}
       <div className="search-div">
-        <h2>Search crypto</h2>
+        <span>Search </span>
         <form>
-
-          {/* input field will handle onchange event */}
-          <input type="text" placeholder="Search a coin" onChange={(e)=>setSearchCoin(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Search a coin"
+            onChange={(e) => {
+              setSearchCoin(e.target.value);
+              setCurrentPage(1); // Reset to page 1 when search changes
+            }}
+          />
         </form>
       </div>
 
-{/* creating table for showing coin details */}
-
-
-<div className="table-div">
-<table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Coin Image</th>
-            <th>Name</th>
-            <th>Price($)</th>
-            <th>24h Change</th>
-            <th>24h Volume</th>
-            <th>Mkt</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          {/* applying filter for searching and mapping the coin  */}
-             {
-              coins.filter((coin)=>{
-                if(searhCoin===''){
-                  console.log(coin.name);
-                  return coin;
-                }
-                else if(
-
-                  // converting search name to lowercase as includes method is case sensitive
-                  // includes will return true/false
-                  coin.name.toLowerCase().includes(searhCoin.toLowerCase())
-                )
-                {
-                  return coin;
-                }
-              }).map((coin)=>(
-                // returning coin item 
-              // <CoinItem key={coin.id} coin={coin}/>
-              <tr>
-              <td>{coin.market_cap_rank}</td>
-              <td>
-              <Link to={`/coin/${coin.id}`}>
-                <div>
-                  <img src={coin.image} alt="img"></img>
-                </div>
-                </Link>
-              </td>
-              <td>{coin.name}</td>
-              <td>{coin.current_price.toLocaleString()}</td>
-       
-         {/* changing color according to market change */}
-                {
-                coin.price_change_percentage_24h>0?
-                <td className="text-color1">{coin.price_change_percentage_24h.toFixed(2)}%</td> : 
-                <td className="text-color2">{coin.price_change_percentage_24h.toFixed(2)}%</td>
-                
-                }
-              <td>{coin.total_volume.toLocaleString()}</td>
-              <td>{coin.market_cap.toLocaleString()}</td>
-
-              {/* <td>
-                <Sparklines data={[coin.sparkline_in_7d.price]}>
-                  <SparklinesLine color="blue" />
-                </Sparklines>
-              </td> */}
+      <div className="table-div">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Coin Image</th>
+              <th>Name</th>
+              <th>Price($)</th>
+              <th>24h Change</th>
+              <th>24h Volume</th>
+              <th>Mkt</th>
             </tr>
-              ))
-             }
-        </tbody>
-      </table>
+          </thead>
 
-</div>
+          <tbody>
+            {currentCoins.map((coin) => (
+              <tr key={coin.id}>
+                <td>{coin.market_cap_rank}</td>
+                <td>
+                  <Link to={`/coin/${coin.id}`}>
+                    <div>
+                      <img src={coin.image} alt="img" />
+                    </div>
+                  </Link>
+                </td>
+                <td>{coin.name}</td>
+                <td>{coin.current_price.toLocaleString()}</td>
+                {coin.price_change_percentage_24h > 0 ? (
+                  <td className="text-color1">
+                    {coin.price_change_percentage_24h.toFixed(2)}%
+                  </td>
+                ) : (
+                  <td className="text-color2">
+                    {coin.price_change_percentage_24h.toFixed(2)}%
+                  </td>
+                )}
+                <td>{coin.total_volume.toLocaleString()}</td>
+                <td>{coin.market_cap.toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
+        {/* Pagination buttons */}
+        <div className="pagination">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
 
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              className={currentPage === index + 1 ? "active-page" : ""}
+              onClick={() => setCurrentPage(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
 
+          <button
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
