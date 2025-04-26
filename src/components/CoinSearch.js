@@ -55,14 +55,17 @@ const CoinSearch = ({ coins }) => {
 
           <tbody>
             {currentCoins.map((coin) => (
-              <tr key={coin.id}>
+              <tr
+                key={coin.id}
+                className="coin-row"
+                onClick={() => (window.location.href = `/coin/${coin.id}`)}
+                style={{ cursor: "pointer" }}
+              >
                 <td>{coin.market_cap_rank}</td>
                 <td>
-                  <Link to={`/coin/${coin.id}`}>
-                    <div>
-                      <img src={coin.image} alt="img" />
-                    </div>
-                  </Link>
+                  <div>
+                    <img src={coin.image} alt="img" />
+                  </div>
                 </td>
                 <td>{coin.name}</td>
                 <td>{coin.current_price.toLocaleString()}</td>
