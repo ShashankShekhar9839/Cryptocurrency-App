@@ -1,29 +1,68 @@
-.trending-card{
-    height: 5vw;
-    width: 20vw;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);
-}
-.trending-card:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-.trending-name{
-    padding-left: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    justify-content: center;
-    align-items:flex-end;
+.trending-card {
+  height: auto;
+  width: 250px;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  background-color: white;
+  transition: transform 0.3s ease-in-out;
 }
 
-.trending-img img{
+.trending-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.trending-name {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.trending-img img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+}
+
+/* ========== Mobile Responsive ========== */
+@media screen and (max-width: 768px) {
+  .trending-card {
+    width: 200px;
+    padding: 0.8rem;
+  }
+
+  .trending-name p {
+    font-size: 14px;
+  }
+
+  .trending-img img {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .trending-card {
+    width: 90%;
+    padding: 0.7rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .trending-name p {
+    font-size: 12px;
+  }
+
+  .trending-img img {
     height: 24px;
     width: 24px;
-    align-self: center;
-    margin: auto;
+  }
 }

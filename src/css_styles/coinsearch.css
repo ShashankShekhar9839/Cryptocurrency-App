@@ -1,81 +1,129 @@
-.coin-search{
-    display: flex;
+.coin-search {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+
+.search-div {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin: auto;
+  margin-top: 5px;
+  padding: 10px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.search-div h2 {
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 8px;
+}
+
+.search-div input {
+  padding: 0.5rem;
+  width: 250px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.table-div {
+  width: 80%;
+  text-align: center;
+  align-self: center;
+  margin-top: -2rem;
+  overflow-x: auto;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 600px; /* So that small screens scroll horizontally */
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table img {
+  height: 24px;
+  width: 24px;
+}
+
+th {
+  border-bottom: 0.5px solid black;
+  padding: 8px;
+}
+
+tr {
+  height: 50px;
+  margin-top: 4px;
+  border-bottom: 0.5px solid black;
+}
+
+table tr:hover {
+  box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 999;
+}
+
+td {
+  padding: 0.4rem;
+  word-wrap: break-word;
+}
+
+.text-color1 {
+  color: green;
+}
+
+.text-color2 {
+  color: red;
+}
+
+/* ========== Mobile Responsive ========== */
+@media screen and (max-width: 768px) {
+  .search-div {
     flex-direction: column;
-    gap: 4rem;
-    width: 100%;
+    gap: 10px;
+    padding: 15px;
+  }
 
-}
-.search-div{
-    height: 40px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: white;
-    margin: auto;
-    margin-top: 5px;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
-}
+  .search-div h2 {
+    font-size: 18px;
+  }
 
-.search-div h2{
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.search-div input{
-    padding: 0.3rem;
-    width: 20vw;
-    font-size: 16px;
-    
-}
-
-.table-div{
+  .search-div input {
     width: 80%;
-    text-align: center;
-    align-self: center;
-    margin-top: -2rem;
-   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
-  
-    
+    max-width: 300px;
+    margin-left: 0;
+  }
+
+  .table-div {
+    width: 95%;
+  }
 }
 
-table{
-    table-layout:fixed;
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-  
-}
+@media screen and (max-width: 480px) {
+  .search-div h2 {
+    font-size: 16px;
+  }
 
-table img{
-    height: 24px;
-    width: 24px;
-}
-
-th{
-    border-bottom: 0.5px solid black;
-}
-
-tr{
-    height: 50px;
-    margin-top:4px;
-    border-bottom: 0.5px solid black;
-}
-
-table tr:hover{
-    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    z-index: 999;
-}
-td{
+  .search-div input {
+    font-size: 14px;
     padding: 0.4rem;
-}
+  }
 
-.text-color1{
-    color: green;
-}
-.text-color2{
-    color: red;
-}
+  table {
+    font-size: 12px;
+    min-width: 500px;
+  }
 
-
+  table img {
+    height: 20px;
+    width: 20px;
+  }
+}
